@@ -69,6 +69,7 @@ def get_ShouJHM(sess):
 
 def get_last_report(sess, t):
     print('#正在获取前一天的填报信息...')
+    print('https://selfreport.shu.edu.cn/ViewDayReport.aspx?day={t.year}-{t.month}-{t.day}')
     ShiFSH = '在上海（校内）'
     JinXXQ = '宝山'
     ShiFZX = '是'
@@ -81,7 +82,7 @@ def get_last_report(sess, t):
     ShiFZJ = '是'
 
     t = t - dt.timedelta(days=1)
-    print('https://selfreport.shu.edu.cn/ViewDayReport.aspx?day={t.year}-{t.month}-{t.day}')
+
     r = sess.get(f'https://selfreport.shu.edu.cn/ViewDayReport.aspx?day={t.year}-{t.month}-{t.day}')
     t = re.findall(r'^.*//\]', r.text, re.MULTILINE)[0]
     htmls = t.split(';var ')
