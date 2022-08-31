@@ -81,6 +81,7 @@ def get_last_report(sess, t):
     ShiFZJ = '是'
 
     t = t - dt.timedelta(days=1)
+    print('https://selfreport.shu.edu.cn/ViewDayReport.aspx?day={t.year}-{t.month}-{t.day}')
     r = sess.get(f'https://selfreport.shu.edu.cn/ViewDayReport.aspx?day={t.year}-{t.month}-{t.day}')
     t = re.findall(r'^.*//\]', r.text, re.MULTILINE)[0]
     htmls = t.split(';var ')
