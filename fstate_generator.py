@@ -69,6 +69,7 @@ def get_ShouJHM(sess):
 
 def get_last_report(sess, t):
     print('#正在获取前一天的填报信息...')
+    print('2333333')
     print('https://selfreport.shu.edu.cn/ViewDayReport.aspx?day={t.year}-{t.month}-{t.day}')
     ShiFSH = '在上海（校内）'
     JinXXQ = '宝山'
